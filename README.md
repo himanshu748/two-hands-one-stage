@@ -6,6 +6,10 @@
 
 The hosted site is an explicitly **synthetic, read-only example** of the repair workflow. The full application, SQLite API and two independent Switch workers run through the local setup below. The public deployment contains no private room records or provider credentials.
 
+![Public synthetic example: agent handoffs beside the scene](docs/images/collaboration-room.png)
+
+**Hosted CI limitation (November 6):** GitHub refused to start the verification job because the account is locked due to a billing issue. Local checks passed; see [test evidence](docs/test-evidence.md).
+
 A tabletop performer, a playwright agent and a stage engineer collaborate in one Switch room bridged to Mattermost. The performer chooses three props, an emotional goal and a protected story fact. The agents draft six beats. A genuine rehearsal difficulty becomes a human-confirmed constraint, localized alternatives with artistic costs, and an exact revision approved in Mattermost.
 
 The workbench shows modeled hands, prop locations, blocking issues and before/after changes. Approval creates an offline timed cue player and printable HTML script from the same immutable revision. Human rehearsal evidence is recorded separately.
