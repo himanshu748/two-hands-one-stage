@@ -51,8 +51,8 @@ test("landing is independent of live state and its tabletop follows real fixture
       .evaluate((e) => parseFloat(getComputedStyle(e).transitionDuration)),
   ).toBeGreaterThan(0);
   await expect(
-    page.getByRole("link", { name: "Open example", exact: false }),
-  ).toHaveAttribute("href", "/example");
+    page.getByRole("link", { name: "Open live room", exact: false }),
+  ).toHaveAttribute("href", "/studio");
 });
 
 test("constraint experiment changes hands and artistic cost without approving anything", async ({

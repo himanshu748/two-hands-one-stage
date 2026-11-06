@@ -40,6 +40,33 @@ describe('Modal adapter through the real SDK and synthetic HTTP responses', () =
     });
     expect(transport).toHaveBeenCalledTimes(1);
   });
+  it('allows a slow Modal result within 75 seconds and aborts the request at the bound without SDK retry', async () => {
+    vi.useFakeTimers();
+    let aborted = false;
+    const transport = vi.fn<typeof fetch>().mockImplementation(async (_url, options) => new Promise<Response>((_resolve, reject) => {
+      options?.signal?.addEventListener('abort', () => { aborted = true; const error = new Error('Synthetic abort'); error.name = 'AbortError'; reject(error); }, { once: true });
+    }));
+    try {
+      const provider = new ModalProvider(syntheticEnv.MODAL_PROXY_TOKEN, syntheticEnv.MODAL_MODEL, syntheticEnv.MODAL_BASE_URL, transport);
+      const failed = expect(provider.generate(request)).rejects.toThrow();
+      await vi.advanceTimersByTimeAsync(74_999);
+      expect(aborted).toBe(false);
+      await vi.advanceTimersByTimeAsync(1);
+      await failed;
+      expect(aborted).toBe(true);
+      expect(transport).toHaveBeenCalledTimes(1);
+    } finally { vi.useRealTimers(); }
+  });
+  it('bounds the configured GLM model reasoning without changing other Modal model requests', async () => {
+    const transport = vi.fn<typeof fetch>().mockResolvedValue(Response.json(completion('{"answer":"Synthetic answer"}')));
+    const provider = new ModalProvider(syntheticEnv.MODAL_PROXY_TOKEN, 'nvidia/GLM-5.3-Flash-NVFP4', syntheticEnv.MODAL_BASE_URL, transport);
+    await provider.generate(request);
+    const body = JSON.parse(String(transport.mock.calls[0]?.[1]?.body));
+    expect(body).toMatchObject({ reasoning_effort: 'low', chat_template_kwargs: { reasoning_effort: 'low' }, max_tokens: 6000, messages: expect.any(Array), response_format: expect.any(Object) });
+    const other = fixture(); await other.provider.generate(request);
+    const otherBody = JSON.parse(String(other.transport.mock.calls[0]?.[1]?.body));
+    expect(otherBody.reasoning_effort).toBeUndefined(); expect(otherBody.chat_template_kwargs).toBeUndefined();
+  });
   it('adapts nested string grammars while still rejecting whitespace through the original schema', async () => {
     const schema = z.object({ beats: z.array(z.object({ title: z.string().regex(/\S/).min(1).max(120), code: z.string().regex(/^b[1-6]$/) }).strict()) }).strict();
     const valid = fixture(completion(JSON.stringify({ beats: [{ title: 'Synthetic title', code: 'b1' }] })));

@@ -3,10 +3,32 @@
   "buildCommand": "pnpm --filter @two-hands/web build",
   "outputDirectory": "apps/web/dist",
   "installCommand": "pnpm install --frozen-lockfile",
-  "redirects": [{ "source": "/studio/:path*", "destination": "/example", "permanent": false }],
-  "rewrites": [{ "source": "/example/:path*", "destination": "/index.html" }],
-  "headers": [{ "source": "/(.*)", "headers": [
-    { "key": "X-Content-Type-Options", "value": "nosniff" },
-    { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-  ] }]
+  "redirects": [
+    {
+      "source": "/studio/:path*",
+      "destination": "https://two-hands.52.202.25.181.sslip.io/studio/:path*",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/example/:path*",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
 }

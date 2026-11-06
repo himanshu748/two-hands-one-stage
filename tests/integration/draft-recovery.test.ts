@@ -24,10 +24,10 @@ describe('bounded human-authorized draft recovery — synthetic service cases', 
     relayHandoffs(store, 'writer'); const stage = claimRequired(store, 'stage');
     store.review('stage', stage.id, [{ proposalId: old.id, explanation: 'The left hand already holds the boat.' }]);
     const original = canonicalize(store.state().brief);
-    expect(store.state().retryDraft).toMatchObject({ eligible: true, remaining: 2 });
+    expect(store.state().retryDraft).toMatchObject({ eligible: true, remaining: 3 });
     expect(retry(store).result).toMatchObject({ accepted: true });
     expect(canonicalize(store.state().brief)).toBe(original);
-    expect(store.state().retryDraft).toMatchObject({ eligible: false, remaining: 1 });
+    expect(store.state().retryDraft).toMatchObject({ eligible: false, remaining: 2 });
     const writer = claimRequired(store, 'writer');
     const next = store.createProposals('writer', writer.id, [{ candidate: syntheticRevision, artisticCosts: ['Synthetic corrected draft.'] }])[0]!;
     relayHandoffs(store, 'writer'); const review = claimRequired(store, 'stage');
@@ -36,7 +36,7 @@ describe('bounded human-authorized draft recovery — synthetic service cases', 
     expect(store.current()?.id).toBe(next.candidate.id); expect(store.proposal(old.id).status).toBe('rejected');
     expect(store.state().rehearsals).toEqual([]);
   });
-  it('counts logical duplicates once and permits at most two retries', () => {
+  it('counts logical duplicates once and permits at most three retries', () => {
     const store = fixture(); blocked(store); const first = retry(store);
     expect(first.result).toMatchObject({ accepted: true });
     expect(store.ingest('writer', first.event)).toMatchObject({ duplicate: true });
@@ -45,8 +45,10 @@ describe('bounded human-authorized draft recovery — synthetic service cases', 
     const second = claimRequired(store, 'writer'); store.fail('writer', second.id);
     expect(retry(store).result).toMatchObject({ accepted: true });
     const third = claimRequired(store, 'writer'); store.fail('writer', third.id);
+    expect(retry(store).result).toMatchObject({ accepted: true });
+    const fourth = claimRequired(store, 'writer'); store.fail('writer', fourth.id);
     expect(retry(store).result).toMatchObject({ rejected: true });
-    expect(store.state().retryDraft).toMatchObject({ eligible: false, remaining: 0 }); expect(store.state().jobs).toHaveLength(3);
+    expect(store.state().retryDraft).toMatchObject({ eligible: false, remaining: 0 }); expect(store.state().jobs).toHaveLength(4);
   });
   it('requires the authorized human and the addressed writer', () => {
     const store = fixture(); blocked(store);

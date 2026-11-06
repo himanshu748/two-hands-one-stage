@@ -1,0 +1,29 @@
+[Unit]
+Description=Two Hands application API (only SQLite writer)
+Requires=docker.service
+After=network-online.target docker.service
+Wants=network-online.target two-hands-writer.service two-hands-stage.service two-hands-gateway.service
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=two-hands
+Group=two-hands
+WorkingDirectory=/opt/two-hands/current
+EnvironmentFile=/etc/two-hands/runtime.env
+Environment=NODE_ENV=production
+ExecStart=/opt/node-v22.14.0-linux-x64/bin/node --import tsx scripts/start-hosted.ts api
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillMode=mixed
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/two-hands
+
+[Install]
+WantedBy=multi-user.target

@@ -92,8 +92,8 @@ export function Landing() {
           <a href="#repair-lab">Try a repair</a>
           <a href="#take-it-with-you">The takeaway</a>
         </nav>
-        <a className="lp-nav-cta" href="/example">
-          Open example <Arrow diagonal />
+        <a className="lp-nav-cta" href="/studio">
+          Open live room <Arrow diagonal />
         </a>
       </header>
       <main id="main">
@@ -116,15 +116,15 @@ export function Landing() {
               tell them what felt difficult, and choose a better version.
             </p>
             <div className="lp-hero-actions">
-              <a className="lp-button lp-primary" href="/example">
-                Explore the example room <Arrow diagonal />
+              <a className="lp-button lp-primary" href="/studio">
+                Open your live room <Arrow diagonal />
               </a>
-              <a className="lp-text-button" href="#repair-lab">
-                Try the interactive example <Arrow />
+              <a className="lp-text-button" href="/example">
+                Explore the example room <Arrow />
               </a>
             </div>
             <p className="lp-hero-note">
-              Built for one performer. Your creative decisions stay yours.
+              Private live room requires performer login. The example is synthetic.
             </p>
           </div>
           <div className="lp-hero-object">

@@ -81,6 +81,20 @@ describe('role-specific job execution', () => {
     expect(calls.some((call) => /approve|stage-agent|switch/.test(call.path))).toBe(false);
   });
 
+  it('includes only the latest rejected initial draft and deterministic failures in explicit redrafting', async () => {
+    const state = snapshot();
+    const validation = { valid: false, issues: [{ code: 'not_held', beatId: 'b2', message: 'Right hand must hold p2 before place.' }] };
+    const old = { id: 'synthetic-rejected', candidate: syntheticRevision, validation, artisticCosts: ['Synthetic rejected staging.'], status: 'rejected' };
+    state.proposals = [{ ...old, id: 'synthetic-older' }, old, { ...old, id: 'synthetic-eligible', status: 'eligible' }];
+    const generate = vi.fn().mockResolvedValue({ beats: syntheticRevision.beats, artisticCosts: ['Synthetic corrected staging.'] });
+    const { api, calls } = recordingApi();
+    await executeJob({ role: 'writer', job: { id: 'redraft', role: 'writer', kind: 'create', payload: {} }, snapshot: state, provider: { generate }, api, isConnected: () => true });
+    const input = JSON.parse(generate.mock.calls[0]![0].input);
+    expect(input.previousDrafts).toEqual([{ candidate: syntheticRevision, validation }]);
+    expect(input.brief).toEqual(state.brief);
+    expect(calls.map(c => c.path)).toEqual(['/internal/jobs/redraft/model-attempt', '/internal/jobs/redraft/proposals', '/internal/jobs/redraft/complete']);
+    expect(state.proposals[1]).toEqual(old);
+  });
   it('accepts opaque Switch job IDs and constructs a safe revision ID', async () => {
     const provider: ModelProvider = { generate: vi.fn().mockResolvedValue({ beats: syntheticRevision.beats, artisticCosts: ['Quiet pacing.'] }) };
     const { api, calls } = recordingApi();

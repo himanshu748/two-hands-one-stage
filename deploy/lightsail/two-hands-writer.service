@@ -1,0 +1,31 @@
+[Unit]
+Description=Two Hands writer worker (independent Switch identity)
+Requires=docker.service
+After=network-online.target docker.service two-hands-api.service
+Wants=network-online.target
+BindsTo=two-hands-api.service
+PartOf=two-hands-api.service
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=two-hands
+Group=two-hands
+WorkingDirectory=/opt/two-hands/current
+EnvironmentFile=/etc/two-hands/runtime.env
+Environment=NODE_ENV=production
+ExecStart=/opt/node-v22.14.0-linux-x64/bin/node --import tsx scripts/start-hosted.ts writer
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillMode=mixed
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/two-hands
+
+[Install]
+WantedBy=multi-user.target

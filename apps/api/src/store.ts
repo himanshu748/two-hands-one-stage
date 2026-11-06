@@ -140,12 +140,12 @@ export class Store {
       }
   }
   private retryDraftState(): State["retryDraft"] {
-    const remaining = Math.max(0, 2 - this.get("draftRetries", 0));
+    const remaining = Math.max(0, 3 - this.get("draftRetries", 0));
     const unavailable = (reason: string): State["retryDraft"] => ({ eligible: false, remaining, reason });
     if (!this.get<Brief | null>("brief", null)) return unavailable("Send your first brief in Mattermost.");
     if (this.current()) return unavailable("A revision is already approved; report a rehearsal observation to request a repair.");
     if (this.refreshApprovalHold()) return unavailable("An edited or revoked instruction holds this scene. Preserve evidence and start a fresh disposable scene.");
-    if (!remaining) return unavailable("Both draft retries have been used. Preserve evidence and start a fresh disposable scene.");
+    if (!remaining) return unavailable("All three draft retries have been used. Preserve evidence and start a fresh disposable scene.");
     const generation = this.get("generation", 0);
     const jobs = (this.db.prepare("SELECT kind,status,payload FROM jobs").all() as { kind: Job["kind"]; status: string; payload: string }[])
       .filter((job) => (JSON.parse(job.payload) as Record<string, unknown>).generation === generation);

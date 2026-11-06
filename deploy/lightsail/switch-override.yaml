@@ -1,0 +1,26 @@
+# Use with deploy/switch/compose.yaml and a private --env-file.
+# Only the existing shared TLS proxy can reach the chat bind address.
+services:
+  postgres:
+    restart: unless-stopped
+    mem_limit: 256m
+  switch:
+    restart: unless-stopped
+    mem_limit: 640m
+  mattermost:
+    restart: unless-stopped
+    mem_limit: 512m
+    ports:
+      - "${CHAT_PROXY_BIND_ADDR:?set private Docker bridge gateway}:18065:8065"
+    environment:
+      MM_SERVICESETTINGS_ENABLEDESKTOPLANDINGPAGE: "false"
+      MM_SERVICESETTINGS_SITEURL: ${MATTERMOST_PUBLIC_URL:?set public HTTPS chat origin}
+      MM_TEAMSETTINGS_ENABLEOPENSERVER: "false"
+      MM_TEAMSETTINGS_ENABLEUSERCREATION: "false"
+      MM_EMAILSETTINGS_ENABLESIGNUPWITHEMAIL: "false"
+      MM_EMAILSETTINGS_ENABLESIGNINWITHEMAIL: "true"
+      MM_EMAILSETTINGS_ENABLESIGNINWITHUSERNAME: "true"
+  setup:
+    mem_limit: 256m
+    environment:
+      MATTERMOST_PUBLIC_URL: ${MATTERMOST_PUBLIC_URL:?set public HTTPS chat origin}

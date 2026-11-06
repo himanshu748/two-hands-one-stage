@@ -79,3 +79,20 @@ test('public example is explicitly synthetic and independent of the live API',as
  expect(requests.some(url=>url.includes('/api/state'))).toBe(false);
  expect(requests.some(url=>url.includes('collaboration-state.json'))).toBe(true);
 });
+
+test('configured live chat is easy to open and never appears in synthetic views', async ({page,request}) => {
+ const state=await snapshot(request);state.synthetic=false;
+ await open(page,state);
+ const chat=page.getByRole('link',{name:'Open Switch chat',exact:false});
+ const configured=process.env.VITE_MATTERMOST_CHANNEL_URL;
+ if(configured){
+  await expect(chat).toHaveAttribute('href',configured);
+  await expect(chat).toHaveAttribute('target','_blank');
+  await expect(page.getByRole('region',{name:'Your Switch chat'})).toContainText('Send your brief, feedback and approval here.');
+ }else await expect(chat).toHaveCount(0);
+ state.synthetic=true;
+ await page.reload();
+ await expect(chat).toHaveCount(0);
+ await page.goto('/example');
+ await expect(chat).toHaveCount(0);
+});

@@ -255,3 +255,35 @@ Public release follow-up: the four landing browser cases passed after updating t
 Final publication receipt: source commit `99c487aa7fbf30fe52c82aa3effe7a5321858a86` was pushed to public `himanshu748/two-hands-one-stage/main` and read back from GitHub. Production alias https://two-hands-one-stage.vercel.app points to READY deployment `dpl_H6J1PGYbS1znMPVmsQfaKkf69dZw` initially; the final chronological-fixture refinement was deployed as https://two-hands-one-stage-ic58998pc-himanshus-projects-acd54afd.vercel.app and aliased to the same public URL. Actual browser readback verified handoff filtering, repair comparison and the explicit synthetic banner. Mobile width 390 had document width 390. Screenshots: `docs/images/collaboration-room.png` and ignored `hosted-mobile.png`. The final fixture pair, lint, strict types and web build passed after that refinement.
 
 GitHub CI did not start any step: run 42245978668, job/check 127988182170, returned the annotation **“The job was not started because your account is locked due to a billing issue.”** There were no job logs. This is not a passing hosted CI claim; no billing settings or runner-security controls were changed. The recorded local suite and browser results remain separate evidence.
+
+## Lightsail live-hosting pass — November 6, 2026
+
+Commands were run from the project root unless a target is specified:
+
+| Command / check | Actual result |
+| --- | --- |
+| `pnpm lint` | Passed with hosted gateway, startup, inference guard and redraft feedback changes. |
+| `pnpm typecheck` | Passed. |
+| `pnpm test` | 226 tests passed in 22 files. Fixtures remain synthetic. |
+| `pnpm build` | Passed: strict types and all workspaces built. |
+| `VITE_MATTERMOST_CHANNEL_URL=<public-channel-url> pnpm test:e2e` | 45 Chromium tests passed. The explicit public chat URL is non-secret. Tests cover live-link visibility/synthetic separation, landing controls, errors, keyboard/reduced motion and offline fixture artifact playback. |
+| `pnpm test:process` | Real local process shutdown/reset filesystem checks passed with synthetic/dummy configuration; no provider calls. |
+| Target `pnpm install --frozen-lockfile` | First failed because the native SQLite build lacked `make`; passed after installing `build-essential` and Python 3. |
+| Target `pnpm build` | Passed on Ubuntu with Node 22.14.0 / pnpm 10.34.9. |
+| Target `systemd-analyze verify` | Four units passed; all services active, zero automatic restarts observed. |
+| Target `node --env-file=/etc/two-hands/runtime.env --import tsx scripts/verify-switch.ts` | Actual HTTP health and required operations discovered for both registered identities; deliberately does not claim the running room connection. |
+| Administrative identity audit + fresh nonce | Actual per-user mapping, linked owner, private membership, non-bot status and three distinct senders verified. Operator automation provenance recorded; no personal presence, scene approval or rehearsal claim. |
+| Real hosted writer → Switch → engineer → Mattermost | Passed. One invalid candidate was rejected; a later candidate passed whole-scene validation and real engineer review. Earlier failures remain inspectable. |
+| Authenticated hosted Chromium | Live `synthetic:false` state, connected workers, activity filter, exact chat link, 1440×1000 and 390×844/reduced motion, no app page errors or horizontal overflow. Real Mattermost UI login succeeded. |
+| Public landing → live room | Passed through the production Vercel redirect to authenticated Lightsail `/studio/`. `/example` remained synthetic and made zero live API requests. |
+| Edge access controls | Anonymous app/state/artifact/internal requests: 401. Authenticated `/internal/state`: 404. Authenticated API mutation: 405. |
+| Graceful API + dependent-worker restart | Real connection resumed; six job records, two proposal digests/statuses, pending approval and eight inference reservations unchanged. No new model request. |
+| Embodiweave replacement | Archive integrity/listing passed; selected container and selected volume removed; old host 410. Shared proxy not recreated; three other app hosts still 200. |
+
+Live receipts, screenshots and sanitized summaries were captured under ignored `work/hosting-live-20261106/`. No live credentials or raw private configuration were staged. Screenshots from the hosted run are actual application evidence, distinct from the existing explicitly synthetic public-example image.
+
+The hosted attempt exposed two model transport timeouts and two complete HTTP responses truncated at the token cap. The adapter now permits a fixed 75-second Modal request, with no hidden SDK retry, and pins low reasoning for the configured GLM model. The inference guard pins its audited pricing model, reserves usage before fetch, retains uncertain timeout reservations, and rejects expiry, count exhaustion, dollar exhaustion and other models. Synthetic real-SDK tests verify request shape, original schema enforcement and actual timeout cancellation. Initial redrafts now include the most recent rejected candidate/validation and remain bounded at three explicit performer messages; duplicate and stale-message protections remain tested.
+
+**New hosted revision acceptance:** `rev-a428fdd7e0437ad2` / `967865ce98b14908aae1ac41d4b0e17ca19af4926c88cd3c8cdfad24ce10855a` is model checked and awaiting exact approval. Live artifact delivery and offline playback of this specific revision remain pending that approval. Historical delegated approval/artifact evidence in the earlier local run is preserved separately; it is not reused as new-host approval. Real physical observation, constraint confirmation, localized repair and human-rehearsed outcome remain pending. Cold host reboot and forced termination on this shared server were not exercised; persistent lock recovery after a hard crash requires operator inspection.
+
+Final target readback at 2026-11-06 16:38:47 UTC confirmed `connection: connected`, two unchanged proposals, six unchanged jobs, eight model requests and no approval/rehearsal. The final guard review found and fixed a pricing-contract issue: a different model is now refused before fetch, and a near-exhausted dollar allowance is tested as well as time/count limits. Final local targeted tests, lint and typecheck passed after that change.

@@ -129,7 +129,7 @@ export class ModalProvider implements ModelProvider {
   constructor(apiKey: string, private readonly model: string, baseUrl: string, fetchImpl: typeof fetch = fetch) {
     validateModalToken(apiKey);
     if (!model.trim()) throw new Error('MODAL_MODEL is required; no provider fallback is available');
-    this.client = new OpenAI({ apiKey, baseURL: modalBaseUrl(baseUrl), organization: null, project: null, maxRetries: 0, timeout: 45_000, fetch: credentialSafeFetch(fetchImpl) });
+    this.client = new OpenAI({ apiKey, baseURL: modalBaseUrl(baseUrl), organization: null, project: null, maxRetries: 0, timeout: 75_000, fetch: credentialSafeFetch(fetchImpl) });
   }
   async generate<T>(request: ModelRequest<T>): Promise<unknown> {
     assertInputBound(request);
@@ -139,6 +139,9 @@ export class ModalProvider implements ModelProvider {
       response_format: modalResponseFormat(request.schema, request.name),
       max_tokens: 6000,
       stream: false,
+      // This configured model defaults to max reasoning, which can consume the
+      // entire output budget before producing a candidate. Keep the budget fixed.
+      ...(this.model === 'nvidia/GLM-5.3-Flash-NVFP4' ? { reasoning_effort: 'low' as const, chat_template_kwargs: { reasoning_effort: 'low' } } : {}),
     }, { signal: request.signal });
     const choice = response.choices[0];
     if (!choice || choice.finish_reason !== 'stop' || choice.message.refusal || choice.message.parsed == null) {
