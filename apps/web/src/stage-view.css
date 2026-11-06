@@ -1,0 +1,389 @@
+.stage-view {
+  --stage-paper: #fffdf6;
+  --stage-ink: #34382f;
+  --stage-muted: #706e60;
+  --stage-prop-one: #a46827;
+  --stage-prop-two: #397469;
+  --stage-prop-three: #71614a;
+  margin: 0;
+  color: var(--stage-ink);
+  width: 100%;
+  min-width: 0;
+  isolation: isolate;
+  background: #f7f4ea;
+  border-radius: 12px;
+  padding: 18px 14px 16px;
+}
+.stage-view-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.15px;
+}
+.stage-model-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--stage-muted);
+  text-align: right;
+}
+.stage-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 720/440;
+  min-height: 255px;
+  overflow: hidden;
+}
+.stage-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.stage-surface-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #79725d;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.stage-surface-label--rest {
+  left: 50%;
+  top: 7%;
+  color: #586954;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.stage-surface-label--rest i {
+  width: 1px;
+  height: 9px;
+  background: #a3b39a;
+  display: block;
+}
+.stage-surface-label--table {
+  left: 50%;
+  top: 57%;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  opacity: 0.9;
+}
+.stage-hand-label {
+  position: absolute;
+  top: 88%;
+  width: 34%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+.stage-hand-label--left {
+  left: 24%;
+}
+.stage-hand-label--right {
+  left: 76%;
+}
+.stage-hand-label > span {
+  display: block;
+  color: #777464;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.stage-hand-label strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-top: 5px;
+  color: #47715b;
+  overflow-wrap: anywhere;
+}
+.stage-hand-label strong.is-occupied {
+  color: #44463b;
+}
+.stage-token-position {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.stage-token-position--p1 {
+  --stage-token-color: var(--stage-prop-one);
+  --stage-token-tint: #f8ebd2;
+}
+.stage-token-position--p2 {
+  --stage-token-color: var(--stage-prop-two);
+  --stage-token-tint: #e4eee4;
+}
+.stage-token-position--p3 {
+  --stage-token-color: var(--stage-prop-three);
+  --stage-token-tint: #f0e9da;
+}
+.stage-view .stage-token {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(48px, 11%, 86px);
+  aspect-ratio: 1;
+  min-height: 48px;
+  padding: 7px 5px 4px;
+  border-radius: 50%;
+  background: var(--stage-paper);
+  border: 1px solid #cfc6b2;
+  color: var(--stage-token-color);
+  box-shadow:
+    0 5px 0 -1px #d9d1be,
+    0 9px 12px -5px #3b34262b;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 140ms ease-out,
+    border-color 140ms ease-out,
+    transform 140ms ease-out;
+  cursor: pointer;
+}
+.stage-view .stage-token:hover {
+  background: var(--stage-token-tint);
+  border-color: var(--stage-token-color);
+  transform: translate(-50%, -54%);
+}
+.stage-view .stage-token:active {
+  transform: translate(-50%, -49%);
+}
+.stage-view .stage-token.is-active {
+  background: var(--stage-token-tint);
+  border: 2px solid var(--stage-token-color);
+}
+.stage-view .stage-token:focus-visible {
+  outline: 3px solid #265e50;
+  outline-offset: 7px;
+}
+.stage-token-number {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.stage-prop-mark {
+  display: block;
+  width: 83%;
+  height: 68%;
+  margin-top: 1px;
+  overflow: visible;
+}
+.stage-view-caption {
+  margin: 8px 0 0;
+  padding: 0 4px;
+}
+.stage-selection-caption {
+  min-height: 28px;
+  margin: 0 0 11px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: var(--stage-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
+.stage-selection-caption strong {
+  color: var(--stage-ink);
+  font-weight: 600;
+}
+.stage-caption-dot {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 3px;
+  background: var(--stage-prop-three);
+}
+.stage-caption-dot--p1 {
+  background: var(--stage-prop-one);
+}
+.stage-caption-dot--p2 {
+  background: var(--stage-prop-two);
+}
+.stage-caption-arrow {
+  font-size: 16px;
+  margin-right: 3px;
+  color: #8b7f61;
+}
+.stage-prop-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+.stage-prop-legend li {
+  min-width: 0;
+}
+.stage-view .stage-legend-button {
+  width: 100%;
+  min-height: 52px;
+  padding: 9px 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 9px;
+  text-align: left;
+  border: 1px solid #ddd8ca;
+  border-radius: 5px;
+  background: #fffdf65c;
+  transition:
+    border-color 140ms ease-out,
+    background-color 140ms ease-out;
+}
+.stage-view .stage-legend-button:hover {
+  background: #fffdf6;
+  border-color: #bcb49d;
+}
+.stage-view .stage-legend-button.is-active {
+  background: #fffdf6;
+  border-color: #858e75;
+}
+.stage-view .stage-legend-button:focus-visible {
+  outline: 3px solid #265e50;
+  outline-offset: 3px;
+}
+.stage-legend-number {
+  color: #97835e;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.stage-legend-button--p1 .stage-legend-number {
+  color: var(--stage-prop-one);
+}
+.stage-legend-button--p2 .stage-legend-number {
+  color: var(--stage-prop-two);
+}
+.stage-legend-button--p3 .stage-legend-number {
+  color: var(--stage-prop-three);
+}
+.stage-legend-button strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.stage-legend-button small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--stage-muted);
+  margin-top: 2px;
+}
+.stage-view--compact .stage-canvas {
+  min-height: 225px;
+}
+.stage-view--compact .stage-view-heading {
+  font-size: 11px;
+}
+.stage-view--compact .stage-model-label {
+  font-size: 8px;
+  letter-spacing: 0.8px;
+}
+.stage-view--compact .stage-selection-caption {
+  font-size: 10px;
+}
+@media (max-width: 540px) {
+  .stage-view-heading {
+    font-size: 11px;
+    gap: 12px;
+  }
+  .stage-model-label {
+    font-size: 8px;
+    letter-spacing: 0.75px;
+  }
+  .stage-canvas {
+    min-height: 260px;
+  }
+  .stage-surface-label {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+  .stage-surface-label--rest {
+    top: 9%;
+    gap: 4px;
+  }
+  .stage-surface-label--table {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .stage-hand-label > span {
+    font-size: 8px;
+  }
+  .stage-hand-label strong {
+    font-size: 11px;
+  }
+  .stage-view .stage-token {
+    padding: 5px 4px 3px;
+    box-shadow:
+      0 4px 0 -1px #d9d1be,
+      0 7px 9px -4px #3b342625;
+  }
+  .stage-token-number {
+    font-size: 8px;
+  }
+  .stage-prop-legend {
+    gap: 5px;
+  }
+  .stage-view .stage-legend-button {
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px;
+    min-height: 70px;
+  }
+  .stage-legend-button strong {
+    font-size: 10px;
+  }
+  .stage-legend-button small {
+    font-size: 9px;
+  }
+  .stage-token-position {
+    transition-duration: 330ms;
+  }
+  .stage-selection-caption {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage-view *,
+  .stage-view *::before,
+  .stage-view *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .stage-view .stage-token:hover,
+  .stage-view .stage-token:active {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.stage-view--compact {
+  padding: 14px 10px 12px;
+}

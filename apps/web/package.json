@@ -1,0 +1,26 @@
+{
+  "name": "@two-hands/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@two-hands/domain": "workspace:*",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "6.0.1"
+  }
+}

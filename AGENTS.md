@@ -1,0 +1,4 @@
+# Two Hands, One Stage
+Keep the bounded MVP: one performer, three props, six beats, one Switch room and Mattermost channel, two independent workers. All creative handoffs and human approval cross Switch. The API alone writes SQLite. Never treat fixture tests as live integration or physical rehearsal evidence.
+Use strict TypeScript, pnpm workspaces and the existing contracts in packages/domain. Domain is transport/database/provider independent. Only deterministic ingestion code may process human approval; models cannot approve or infer identity. Preserve exact candidate digests and validate whole scenes transactionally.
+Do not commit, push, publish, deploy, spend, or message other people without user authorization. Never print secrets. Keep generated test data labeled synthetic. Run pnpm lint, typecheck, test, build and test:e2e for relevant changes. Check docs/test-evidence.md for verified scope.

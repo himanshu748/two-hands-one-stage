@@ -1,0 +1,46 @@
+{
+  "name": "two-hands-one-stage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22.14.0 <23",
+    "pnpm": "10.34.9"
+  },
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "build:public-demo": "tsx scripts/build-public-demo.ts && pnpm --filter @two-hands/web build",
+    "build": "pnpm typecheck && pnpm -r build",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "verify:switch": "tsx scripts/verify-switch.ts",
+    "verify:model": "tsx scripts/verify-model.ts",
+    "readiness": "tsx scripts/readiness.ts",
+    "verify:human": "tsx scripts/verify-human.ts",
+    "register:agents": "tsx scripts/register-agents.ts",
+    "demo:reset": "tsx scripts/demo-reset.ts",
+    "recover:delivery": "tsx scripts/reconcile-delivery.ts",
+    "test:process": "node scripts/test-lifecycle.mjs && node scripts/test-reset.mjs",
+    "switch:local": "tsx scripts/local-switch.ts"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "tsx": "4.23.15",
+    "vitest": "5.1.0",
+    "@playwright/test": "1.64.1",
+    "eslint": "9.39.1",
+    "@eslint/js": "9.39.1",
+    "typescript-eslint": "8.48.1",
+    "@types/node": "22.15.30",
+    "@types/better-sqlite3": "7.6.13",
+    "@types/ws": "8.18.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@two-hands/domain": "workspace:*",
+    "@two-hands/switch-client": "workspace:*",
+    "zod": "3.25.76"
+  }
+}

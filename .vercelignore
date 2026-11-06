@@ -1,0 +1,13 @@
+.env
+.env.*
+work/
+outputs/
+node_modules/
+.git/
+.vercel/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+playwright-report/
+test-results/

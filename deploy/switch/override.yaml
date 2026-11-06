@@ -1,0 +1,4 @@
+services:
+  setup:
+    environment:
+      MATTERMOST_PUBLIC_URL: http://127.0.0.1:${MATTERMOST_HOST_PORT:-18065}

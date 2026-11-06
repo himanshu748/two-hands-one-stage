@@ -1,0 +1,1650 @@
+{
+  "collaboration": {
+    "events": [
+      {
+        "id": "message:!synthetic-room:switch.invalid:$public-example-message-1",
+        "actor": "human",
+        "to": "writer",
+        "taskId": null,
+        "revisionId": null,
+        "kind": "brief",
+        "title": "Performer account sent the scene brief",
+        "text": "Three props: Paper boat, Blue cup, Brass key. Goal: Turn a small moment of loneliness into welcome.",
+        "status": "received",
+        "timestamp": 1793750400000,
+        "messageId": "$public-example-message-1"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-1:review",
+        "actor": "writer",
+        "kind": "review_request",
+        "title": "Writer asked for a staging review",
+        "text": "The writer sent the proposed scene to the stage engineer to check hands, object positions and later actions.",
+        "to": "stage",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-1:review",
+        "revisionId": null,
+        "status": "received",
+        "timestamp": 1793750400001,
+        "messageId": "$synthetic-outbox-!synthetic-room:switch.invalid:$public-example-message-1:review"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-1:review:alternatives",
+        "actor": "stage",
+        "to": "human",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-1:review:alternatives",
+        "revisionId": null,
+        "kind": "alternatives",
+        "title": "Reviewed scene options",
+        "text": "The stage engineer prepared the checks and artistic costs for your decision. The complete options remain available in the scene review.",
+        "status": "sent",
+        "timestamp": 1793750400002,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-1:review:alternatives"
+      },
+      {
+        "id": "message:!synthetic-room:switch.invalid:$public-example-message-2",
+        "actor": "human",
+        "to": "stage",
+        "taskId": null,
+        "revisionId": "public-example-r1",
+        "kind": "approval",
+        "title": "Performer account sent an approval instruction",
+        "text": "The account requested approval of a candidate. The scene approval state records whether its exact revision and digest were accepted, rejected or later withdrawn.",
+        "status": "received",
+        "timestamp": 1793750400003,
+        "messageId": "$public-example-message-2"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-2:artifacts",
+        "actor": "stage",
+        "to": "human",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-2:artifacts",
+        "revisionId": "public-example-r1",
+        "kind": "artifacts",
+        "title": "Performance file links",
+        "text": "This message contains the approved scene’s cue player and printable script. Physical rehearsal is still a separate step.",
+        "status": "sent",
+        "timestamp": 1793750400004,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-2:artifacts"
+      },
+      {
+        "id": "message:!synthetic-room:switch.invalid:$public-example-message-3",
+        "actor": "human",
+        "to": "stage",
+        "taskId": null,
+        "revisionId": "public-example-r1",
+        "kind": "observation",
+        "title": "Performer account reported a difficulty",
+        "text": "Synthetic example: holding the boat makes it awkward to move the cup. I need my left hand free.",
+        "status": "received",
+        "timestamp": 1793750400005,
+        "messageId": "$public-example-message-3"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-3:confirm",
+        "actor": "stage",
+        "to": "human",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-3:confirm",
+        "revisionId": null,
+        "kind": "interpretation",
+        "title": "Stage engineer prepared a constraint for your confirmation",
+        "text": "Unconfirmed interpretation: Synthetic interpretation: keep the left hand free throughout. Confirm this only if it accurately describes the difficulty.",
+        "status": "sent",
+        "timestamp": 1793750400006,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-3:confirm"
+      },
+      {
+        "id": "message:!synthetic-room:switch.invalid:$public-example-message-4",
+        "actor": "human",
+        "to": "stage",
+        "taskId": null,
+        "revisionId": null,
+        "kind": "confirmation",
+        "title": "Performer account sent constraint confirmation",
+        "text": "Requested that the left hand remain free. This is a recorded message; the current constraint state shows whether it was applied.",
+        "status": "received",
+        "timestamp": 1793750400007,
+        "messageId": "$public-example-message-4"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-4:repair",
+        "actor": "stage",
+        "kind": "repair_request",
+        "title": "Stage engineer requested a repair",
+        "text": "The stage engineer asked the writer for changes around the confirmed physical constraint, with artistic tradeoffs.",
+        "to": "writer",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-4:repair",
+        "revisionId": "public-example-r1",
+        "status": "received",
+        "timestamp": 1793750400008,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-4:repair"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-4:repair:review",
+        "actor": "writer",
+        "kind": "review_request",
+        "title": "Writer asked for a staging review",
+        "text": "The writer sent the proposed scene to the stage engineer to check hands, object positions and later actions.",
+        "to": "stage",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review",
+        "revisionId": "public-example-r1",
+        "status": "received",
+        "timestamp": 1793750400009,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-4:repair:review"
+      },
+      {
+        "id": "delivery:!synthetic-room:switch.invalid:$public-example-message-4:repair:review:alternatives",
+        "actor": "stage",
+        "to": "human",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review:alternatives",
+        "revisionId": null,
+        "kind": "alternatives",
+        "title": "Reviewed scene options",
+        "text": "The stage engineer prepared the checks and artistic costs for your decision. The complete options remain available in the scene review.",
+        "status": "sent",
+        "timestamp": 1793750400010,
+        "messageId": "$synthetic-public-outbox-!synthetic-room:switch.invalid:$public-example-message-4:repair:review:alternatives"
+      }
+    ]
+  },
+  "approvalHold": false,
+  "needsRepair": true,
+  "retryDraft": {
+    "eligible": false,
+    "remaining": 2,
+    "reason": "A revision is already approved; report a rehearsal observation to request a repair."
+  },
+  "approvals": [
+    {
+      "proposalId": "!synthetic-room:switch.invalid:$public-example-message-1:proposal:0",
+      "revisionId": "public-example-r1",
+      "digest": "dff2110609339890040f4497154f9cd7610c09b6e70ac37c9d6d1eddd56f0555",
+      "revoked": false
+    }
+  ],
+  "deliveries": [
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-1:review",
+      "role": "writer",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-1:review:alternatives",
+      "role": "stage",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-2:artifacts",
+      "role": "stage",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-3:confirm",
+      "role": "stage",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair",
+      "role": "stage",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review",
+      "role": "writer",
+      "status": "sent",
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review:alternatives",
+      "role": "stage",
+      "status": "sent",
+      "error": null
+    }
+  ],
+  "connection": {
+    "status": "disconnected",
+    "detail": "Public synthetic walkthrough. No live Switch connection, model worker or human rehearsal is running."
+  },
+  "brief": {
+    "sceneId": "synthetic-lighthouse",
+    "title": "A light left on",
+    "props": [
+      {
+        "id": "p1",
+        "name": "Paper boat"
+      },
+      {
+        "id": "p2",
+        "name": "Blue cup"
+      },
+      {
+        "id": "p3",
+        "name": "Brass key"
+      }
+    ],
+    "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+    "protectedFact": "The boat belongs to the person who has not yet returned."
+  },
+  "current": {
+    "sceneId": "synthetic-lighthouse",
+    "title": "A light left on",
+    "props": [
+      {
+        "id": "p1",
+        "name": "Paper boat"
+      },
+      {
+        "id": "p2",
+        "name": "Blue cup"
+      },
+      {
+        "id": "p3",
+        "name": "Brass key"
+      }
+    ],
+    "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+    "protectedFact": "The boat belongs to the person who has not yet returned.",
+    "id": "public-example-r1",
+    "parentRevisionId": null,
+    "initialState": {
+      "hands": {
+        "left": null,
+        "right": null
+      },
+      "locations": {
+        "p1": "table",
+        "p2": "table",
+        "p3": "table"
+      }
+    },
+    "constraints": [],
+    "beats": [
+      {
+        "id": "b1",
+        "title": "The empty shore",
+        "dialogue": "I kept your boat exactly where you left it.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "hold",
+            "propId": "p1",
+            "hand": "left",
+            "from": "table"
+          },
+          {
+            "type": "pause",
+            "seconds": 2
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "title": "A small lighthouse",
+        "dialogue": "A cup can be a lighthouse, if someone is watching.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "move",
+            "propId": "p2",
+            "hand": "right",
+            "from": "table",
+            "to": "rest"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "title": "Room to wait",
+        "dialogue": "I made a little room beside the light.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "place",
+            "propId": "p1",
+            "hand": "left",
+            "to": "rest"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "title": "An open door",
+        "dialogue": "Your key still fits. I checked.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "hold",
+            "propId": "p3",
+            "hand": "right",
+            "from": "table"
+          },
+          {
+            "type": "release",
+            "propId": "p3",
+            "hand": "right",
+            "to": "table"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "title": "Keep the light",
+        "dialogue": "I can wait without holding everything.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "move",
+            "propId": "p2",
+            "hand": "right",
+            "from": "rest",
+            "to": "table"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "title": "A place for you",
+        "dialogue": "When you return, there will be a place for you.",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "pause",
+            "seconds": 3
+          }
+        ]
+      }
+    ]
+  },
+  "currentDigest": "dff2110609339890040f4497154f9cd7610c09b6e70ac37c9d6d1eddd56f0555",
+  "constraints": [
+    {
+      "id": "constraint-obs-public-observation-1",
+      "observationId": "obs-public-observation-1",
+      "description": "Human confirmed: keep left hand free throughout; confirmed for observation obs-public-observation-1",
+      "unavailableHand": "left"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-public-observation-1",
+      "revisionId": "public-example-r1",
+      "text": "Synthetic example: holding the boat makes it awkward to move the cup. I need my left hand free.",
+      "interpretation": "Synthetic interpretation: keep the left hand free throughout. Confirm this only if it accurately describes the difficulty.",
+      "status": "confirmed"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-1:proposal:0",
+      "baseRevisionId": null,
+      "candidate": {
+        "sceneId": "synthetic-lighthouse",
+        "title": "A light left on",
+        "props": [
+          {
+            "id": "p1",
+            "name": "Paper boat"
+          },
+          {
+            "id": "p2",
+            "name": "Blue cup"
+          },
+          {
+            "id": "p3",
+            "name": "Brass key"
+          }
+        ],
+        "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+        "protectedFact": "The boat belongs to the person who has not yet returned.",
+        "id": "public-example-r1",
+        "parentRevisionId": null,
+        "initialState": {
+          "hands": {
+            "left": null,
+            "right": null
+          },
+          "locations": {
+            "p1": "table",
+            "p2": "table",
+            "p3": "table"
+          }
+        },
+        "constraints": [],
+        "beats": [
+          {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p1",
+                "hand": "left",
+                "from": "table"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b2",
+            "title": "A small lighthouse",
+            "dialogue": "A cup can be a lighthouse, if someone is watching.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          },
+          {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "place",
+                "propId": "p1",
+                "hand": "left",
+                "to": "rest"
+              }
+            ]
+          },
+          {
+            "id": "b4",
+            "title": "An open door",
+            "dialogue": "Your key still fits. I checked.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p3",
+                "hand": "right",
+                "from": "table"
+              },
+              {
+                "type": "release",
+                "propId": "p3",
+                "hand": "right",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b5",
+            "title": "Keep the light",
+            "dialogue": "I can wait without holding everything.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "rest",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b6",
+            "title": "A place for you",
+            "dialogue": "When you return, there will be a place for you.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 3
+              }
+            ]
+          }
+        ]
+      },
+      "digest": "dff2110609339890040f4497154f9cd7610c09b6e70ac37c9d6d1eddd56f0555",
+      "patch": null,
+      "affectedBeats": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "dependentTransitions": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "artisticCosts": [
+        "A quiet pace gives the waiting room to breathe."
+      ],
+      "validation": {
+        "valid": true,
+        "issues": [],
+        "transitions": [
+          {
+            "beatId": "b1",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": "p1",
+                "right": null
+              },
+              "locations": {
+                "p1": "left",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b2",
+            "before": {
+              "hands": {
+                "left": "p1",
+                "right": null
+              },
+              "locations": {
+                "p1": "left",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": "p1",
+                "right": null
+              },
+              "locations": {
+                "p1": "left",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b3",
+            "before": {
+              "hands": {
+                "left": "p1",
+                "right": null
+              },
+              "locations": {
+                "p1": "left",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b4",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b5",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b6",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          }
+        ]
+      },
+      "diff": [],
+      "status": "committed",
+      "review": "Symbolic hand and location checks pass. Human rehearsal is still required."
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair:proposal:0",
+      "baseRevisionId": "public-example-r1",
+      "candidate": {
+        "sceneId": "synthetic-lighthouse",
+        "title": "A light left on",
+        "props": [
+          {
+            "id": "p1",
+            "name": "Paper boat"
+          },
+          {
+            "id": "p2",
+            "name": "Blue cup"
+          },
+          {
+            "id": "p3",
+            "name": "Brass key"
+          }
+        ],
+        "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+        "protectedFact": "The boat belongs to the person who has not yet returned.",
+        "id": "public-example-r2",
+        "parentRevisionId": "public-example-r1",
+        "initialState": {
+          "hands": {
+            "left": null,
+            "right": null
+          },
+          "locations": {
+            "p1": "table",
+            "p2": "table",
+            "p3": "table"
+          }
+        },
+        "constraints": [
+          {
+            "id": "constraint-obs-public-observation-1",
+            "observationId": "obs-public-observation-1",
+            "description": "Human confirmed: keep left hand free throughout; confirmed for observation obs-public-observation-1",
+            "unavailableHand": "left"
+          }
+        ],
+        "beats": [
+          {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b2",
+            "title": "A small lighthouse",
+            "dialogue": "A cup can be a lighthouse, if someone is watching.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          },
+          {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          },
+          {
+            "id": "b4",
+            "title": "An open door",
+            "dialogue": "Your key still fits. I checked.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p3",
+                "hand": "right",
+                "from": "table"
+              },
+              {
+                "type": "release",
+                "propId": "p3",
+                "hand": "right",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b5",
+            "title": "Keep the light",
+            "dialogue": "I can wait without holding everything.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "rest",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b6",
+            "title": "A place for you",
+            "dialogue": "When you return, there will be a place for you.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 3
+              }
+            ]
+          }
+        ]
+      },
+      "digest": "5db1b95813e2c8b4c71e7889af60ecf6b1b67343c752756dbb0f1277e9f8d224",
+      "patch": {
+        "beats": [
+          {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          }
+        ]
+      },
+      "affectedBeats": [
+        "b1",
+        "b3"
+      ],
+      "dependentTransitions": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "artisticCosts": [
+        "The boat waits on the table in the opening. The welcome feels patient, but less protective."
+      ],
+      "validation": {
+        "valid": true,
+        "issues": [],
+        "transitions": [
+          {
+            "beatId": "b1",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b2",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b3",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b4",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b5",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b6",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          }
+        ]
+      },
+      "diff": [
+        {
+          "beatId": "b1",
+          "before": {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p1",
+                "hand": "left",
+                "from": "table"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          "after": {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          }
+        },
+        {
+          "beatId": "b3",
+          "before": {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "place",
+                "propId": "p1",
+                "hand": "left",
+                "to": "rest"
+              }
+            ]
+          },
+          "after": {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "eligible",
+      "review": "Synthetic review: the left hand stays free in all six parts. Both the opening and the later boat placement were changed together, so the later action no longer expects a boat in the left hand. A real performer still needs to try reach and timing."
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair:proposal:1",
+      "baseRevisionId": "public-example-r1",
+      "candidate": {
+        "sceneId": "synthetic-lighthouse",
+        "title": "A light left on",
+        "props": [
+          {
+            "id": "p1",
+            "name": "Paper boat"
+          },
+          {
+            "id": "p2",
+            "name": "Blue cup"
+          },
+          {
+            "id": "p3",
+            "name": "Brass key"
+          }
+        ],
+        "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+        "protectedFact": "The boat belongs to the person who has not yet returned.",
+        "id": "public-example-r3",
+        "parentRevisionId": "public-example-r1",
+        "initialState": {
+          "hands": {
+            "left": null,
+            "right": null
+          },
+          "locations": {
+            "p1": "table",
+            "p2": "table",
+            "p3": "table"
+          }
+        },
+        "constraints": [
+          {
+            "id": "constraint-obs-public-observation-1",
+            "observationId": "obs-public-observation-1",
+            "description": "Human confirmed: keep left hand free throughout; confirmed for observation obs-public-observation-1",
+            "unavailableHand": "left"
+          }
+        ],
+        "beats": [
+          {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b2",
+            "title": "A small lighthouse",
+            "dialogue": "A cup can be a lighthouse, if someone is watching.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              }
+            ]
+          },
+          {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b4",
+            "title": "An open door",
+            "dialogue": "Your key still fits. I checked.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p3",
+                "hand": "right",
+                "from": "table"
+              },
+              {
+                "type": "release",
+                "propId": "p3",
+                "hand": "right",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b5",
+            "title": "Keep the light",
+            "dialogue": "I can wait without holding everything.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p2",
+                "hand": "right",
+                "from": "rest",
+                "to": "table"
+              }
+            ]
+          },
+          {
+            "id": "b6",
+            "title": "A place for you",
+            "dialogue": "When you return, there will be a place for you.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 3
+              }
+            ]
+          }
+        ]
+      },
+      "digest": "8b6019fca1b149d468619e390245b3bd0f5fb48d8cf60f75701a3a6a9962b587",
+      "patch": {
+        "beats": [
+          {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          }
+        ]
+      },
+      "affectedBeats": [
+        "b1",
+        "b3"
+      ],
+      "dependentTransitions": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "artisticCosts": [
+        "The boat reaches the resting place before the lighthouse is made. The opening feels more decisive and loses some suspense."
+      ],
+      "validation": {
+        "valid": true,
+        "issues": [],
+        "transitions": [
+          {
+            "beatId": "b1",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "table",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b2",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b3",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b4",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b5",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "rest",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          },
+          {
+            "beatId": "b6",
+            "before": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            },
+            "after": {
+              "hands": {
+                "left": null,
+                "right": null
+              },
+              "locations": {
+                "p1": "rest",
+                "p2": "table",
+                "p3": "table"
+              }
+            }
+          }
+        ]
+      },
+      "diff": [
+        {
+          "beatId": "b1",
+          "before": {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "hold",
+                "propId": "p1",
+                "hand": "left",
+                "from": "table"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          },
+          "after": {
+            "id": "b1",
+            "title": "The empty shore",
+            "dialogue": "I kept your boat exactly where you left it.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "move",
+                "propId": "p1",
+                "hand": "right",
+                "from": "table",
+                "to": "rest"
+              },
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          }
+        },
+        {
+          "beatId": "b3",
+          "before": {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "place",
+                "propId": "p1",
+                "hand": "left",
+                "to": "rest"
+              }
+            ]
+          },
+          "after": {
+            "id": "b3",
+            "title": "Room to wait",
+            "dialogue": "I made a little room beside the light.",
+            "seconds": 12,
+            "actions": [
+              {
+                "type": "pause",
+                "seconds": 2
+              }
+            ]
+          }
+        }
+      ],
+      "status": "eligible",
+      "review": "Synthetic review: the left hand stays free in all six parts. Both the opening and the later boat placement were changed together, so the later action no longer expects a boat in the left hand. A real performer still needs to try reach and timing."
+    }
+  ],
+  "rehearsals": [],
+  "artifacts": [
+    {
+      "revisionId": "public-example-r1",
+      "digest": "dff2110609339890040f4497154f9cd7610c09b6e70ac37c9d6d1eddd56f0555",
+      "cueUrl": "/examples/artifacts/public-example-r1/cue.html",
+      "scriptUrl": "/examples/artifacts/public-example-r1/script.html"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-1",
+      "role": "writer",
+      "kind": "create",
+      "payload": {
+        "baseRevisionId": null,
+        "generation": 0,
+        "brief": {
+          "sceneId": "synthetic-lighthouse",
+          "title": "A light left on",
+          "props": [
+            {
+              "id": "p1",
+              "name": "Paper boat"
+            },
+            {
+              "id": "p2",
+              "name": "Blue cup"
+            },
+            {
+              "id": "p3",
+              "name": "Brass key"
+            }
+          ],
+          "emotionalGoal": "Turn a small moment of loneliness into welcome.",
+          "protectedFact": "The boat belongs to the person who has not yet returned."
+        }
+      },
+      "status": "done",
+      "lease_until": 0,
+      "attempts": 1,
+      "model_attempts": 0,
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-1:review",
+      "role": "stage",
+      "kind": "review",
+      "payload": {
+        "baseRevisionId": null,
+        "generation": 0,
+        "v": 1,
+        "type": "review_request",
+        "sceneId": "synthetic-lighthouse",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-1:review",
+        "proposalIds": [
+          "!synthetic-room:switch.invalid:$public-example-message-1:proposal:0"
+        ],
+        "round": 0
+      },
+      "status": "done",
+      "lease_until": 0,
+      "attempts": 1,
+      "model_attempts": 0,
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-3",
+      "role": "stage",
+      "kind": "interpret",
+      "payload": {
+        "baseRevisionId": "public-example-r1",
+        "generation": 2,
+        "observationId": "obs-public-observation-1"
+      },
+      "status": "done",
+      "lease_until": 0,
+      "attempts": 1,
+      "model_attempts": 0,
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair",
+      "role": "writer",
+      "kind": "repair",
+      "payload": {
+        "baseRevisionId": "public-example-r1",
+        "generation": 3,
+        "v": 1,
+        "type": "repair_request",
+        "sceneId": "synthetic-lighthouse",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-4:repair",
+        "observationId": "obs-public-observation-1",
+        "round": 0
+      },
+      "status": "done",
+      "lease_until": 0,
+      "attempts": 1,
+      "model_attempts": 0,
+      "error": null
+    },
+    {
+      "id": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review",
+      "role": "stage",
+      "kind": "review",
+      "payload": {
+        "baseRevisionId": "public-example-r1",
+        "generation": 3,
+        "v": 1,
+        "type": "review_request",
+        "sceneId": "synthetic-lighthouse",
+        "taskId": "!synthetic-room:switch.invalid:$public-example-message-4:repair:review",
+        "proposalIds": [
+          "!synthetic-room:switch.invalid:$public-example-message-4:repair:proposal:0",
+          "!synthetic-room:switch.invalid:$public-example-message-4:repair:proposal:1"
+        ],
+        "round": 0
+      },
+      "status": "done",
+      "lease_until": 0,
+      "attempts": 1,
+      "model_attempts": 0,
+      "error": null
+    }
+  ],
+  "synthetic": true
+}

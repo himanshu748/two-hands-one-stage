@@ -1,0 +1,21 @@
+# Docker Cloud currently documents incorrect docker exec/healthcheck filesystem
+# resolution. Keep the original init-db container's bounded authenticated psql
+# readiness loop: it runs as the container's main process, not through exec.
+# https://docs.docker.com/ai/sandboxes/cloud/usage/#docker-exec-and-healthchecks
+services:
+  postgres:
+    healthcheck:
+      disable: true
+  init-db:
+    depends_on:
+      postgres:
+        condition: service_started
+  switch:
+    depends_on:
+      postgres:
+        condition: service_started
+      init-db:
+        condition: service_completed_successfully
+  mattermost:
+    environment:
+      MM_SERVICESETTINGS_SITEURL: http://127.0.0.1:${MATTERMOST_HOST_PORT:-18065}
