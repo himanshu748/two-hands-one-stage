@@ -290,3 +290,11 @@ Final target readback at 2026-11-06 16:38:47 UTC confirmed `connection: connecte
 
 
 At 2026-11-06 17:17:39 UTC, `work/hosting-live-20261106/verify-artifacts.mjs` passed actual Mattermost UI login, both delivered-link clicks, matching approved metadata and offline playback. The API then showed one approval and zero rehearsals. The hosted `verify` workflow for code commit `f3b66d8` ([run 42254723895](https://github.com/himanshu748/two-hands-one-stage/actions/runs/42254723895)) again stopped before any step: “The job was not started because your account is locked due to a billing issue.” No billing setting was changed; local checks and target verification are separate evidence.
+
+### November 7 submission video and form preparation
+
+Created a 69-second captioned walkthrough from retained November 6 hosted screenshots: workbench handoffs, the actual delegated Mattermost approval and artifact-delivery message, and the offline-player check. It also explains queued-turn cancellation PR #1496. No new provider inference, narration, music, fabricated click sequence or physical rehearsal was used. This is an edited recorded-run walkthrough, not a continuous new live capture.
+
+`ffprobe` verified H.264, 1920×1440, 60 fps, 69.000 seconds and 2,336,816 bytes. A mid-video thumbnail and the final limitations card were inspected. After explicit user agreement to YouTube terms and authorization for unlisted upload, YouTube reported copyright and Community Guidelines checks complete with no issues, confirmed Video published with Unlisted selected, and the actual watch page played through 0:10 of 1:09. Demo: https://youtu.be/ErJLsbTN7oE . The video and description explicitly leave genuine physical observation, constraint-triggered repair and human rehearsal pending.
+
+The official WeMakeDevs form was filled and visibly showed Everything required is answered (9 of 9). Only PR #1496 was listed for Core Contribution because issue #800 currently lists the user's account as an assignee. Final submission is a personal step under the event rules; no automated final submission or receipt is claimed. Private draft/verification files remain under ignored work/submission-20261107/. No application code changed in this documentation follow-up, so prior software test results retain their original dates and scope.

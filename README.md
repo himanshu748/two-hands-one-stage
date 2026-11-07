@@ -2,7 +2,9 @@
 
 **Stories you can actually perform.**
 
-[Live workbench](https://two-hands.52.202.25.181.sslip.io/studio) · [Public collaboration example](https://two-hands-one-stage.vercel.app/example) · [Source repository](https://github.com/himanshu748/two-hands-one-stage)
+[69-second demo](https://youtu.be/ErJLsbTN7oE) · [Live workbench](https://two-hands.52.202.25.181.sslip.io/studio) · [Public collaboration example](https://two-hands-one-stage.vercel.app/example) · [Source repository](https://github.com/himanshu748/two-hands-one-stage)
+
+The demo is a captioned walkthrough of screenshots from the real November 6 hosted run, including delegated approval and artifact delivery. It is not a new continuous recording or a physical performance.
 
 The **live workbench** runs on the existing Lightsail server with the SQLite API, two independent workers and real Switch/Mattermost. It requires the private performer login. The public `/example` remains an explicitly synthetic, read-only walkthrough; it does not call the live API. See [hosted setup and evidence](docs/lightsail.md). Credentials stay outside the repository and browser bundle.
 
